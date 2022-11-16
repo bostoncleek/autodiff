@@ -224,6 +224,8 @@ using std::sinh;
 using std::sqrt;
 using std::tan;
 using std::tanh;
+using std::isnan;
+using std::isinf;
 
 //=====================================================================================================================
 //
@@ -889,6 +891,18 @@ template<size_t N, typename T, typename U, Requires<isArithmetic<U>> = true>
 constexpr auto max(const U& x, const Real<N, T>& y)
 {
     return (x > y[0]) ? x : y;
+}
+
+template<size_t N, typename T>
+constexpr auto isnan(const Real<N, T>& x)
+{
+    return isnan(x.val());
+}
+
+template<size_t N, typename T>
+constexpr auto isinf(const Real<N, T>& x)
+{
+    return isinf(x.val());
 }
 
 //=====================================================================================================================

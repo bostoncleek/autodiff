@@ -409,6 +409,15 @@ TEST_CASE("testing autodiff::real", "[forward][real]")
     CHECK_APPROX( z[3], std::abs(y[0])/(y[0]) * y[3] );
     CHECK_APPROX( z[4], std::abs(y[0])/(y[0]) * y[4] );
 
+    x = 1.0;
+    y = std::numeric_limits<double>::quiet_NaN();
+    CHECK( isnan(y) );
+    CHECK( !isnan(x) );
+
+    y = std::numeric_limits<double>::infinity();
+    CHECK( isinf(y) );
+    CHECK( !isinf(x) );
+
     //=====================================================================================================================
     //
     // TESTING MIN/MAX FUNCTIONS
