@@ -226,6 +226,8 @@ using std::tan;
 using std::tanh;
 using std::isnan;
 using std::isinf;
+using std::floor;
+using std::ceil;
 
 //=====================================================================================================================
 //
@@ -894,15 +896,27 @@ constexpr auto max(const U& x, const Real<N, T>& y)
 }
 
 template<size_t N, typename T>
-constexpr auto isnan(const Real<N, T>& x)
+constexpr bool isnan(const Real<N, T>& x)
 {
     return isnan(x.val());
 }
 
 template<size_t N, typename T>
-constexpr auto isinf(const Real<N, T>& x)
+constexpr bool isinf(const Real<N, T>& x)
 {
     return isinf(x.val());
+}
+
+template<size_t N, typename T>
+constexpr auto floor(const Real<N, T>& x)
+{
+    return floor(x.val());
+}
+
+template<size_t N, typename T>
+constexpr auto ceil(const Real<N, T>& x)
+{
+    return ceil(x.val());
 }
 
 //=====================================================================================================================

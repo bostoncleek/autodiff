@@ -411,12 +411,23 @@ TEST_CASE("testing autodiff::real", "[forward][real]")
 
     x = 1.0;
     y = std::numeric_limits<double>::quiet_NaN();
+
     CHECK( isnan(y) );
     CHECK( !isnan(x) );
 
     y = std::numeric_limits<double>::infinity();
+
     CHECK( isinf(y) );
     CHECK( !isinf(x) );
+
+    x = 2.7;
+    y = -2.7;
+
+    CHECK( floor(x) == 2.0 );
+    CHECK( floor(y) == -3.0 );
+
+    CHECK( ceil(x) == 3.0 );
+    CHECK( ceil(y) == -2.0 );
 
     //=====================================================================================================================
     //
